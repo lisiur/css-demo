@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        ul {
+            font-size: 0;
+            display: flex;
+        }
+        li {
+            font-size: 16px;
+            display: inline-block;
+            padding: 4px 8px;
+            background: #abcdef;
+            position: relative;
+            overflow: hidden;
+        }
+        ul.left li::before {
+            content: '';
+            position: absolute;
+            left: 100%;
+            bottom: 0;
+            width: 0;
+            height: 100%;
+            border-bottom: 2px solid #000;
+            transition: left .2s, width .2s;
+        }
+        ul.left li:hover::before {
+            left: 0;
+            width: 100%;
+        }
+        ul.left li:hover ~ li::before {
+            left: -100%;
+        }
+
+        ul.right {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+        ul.right li::before {
+            content: '';
+            position: absolute;
+            right: 100%;
+            bottom: 0;
+            width: 0;
+            height: 100%;
+            border-bottom: 2px solid #000;
+            transition: right .2s, width .2s;
+        }
+        ul.right li:hover::before {
+            right: 0;
+            width: 100%;
+        }
+        ul.right li:hover ~ li::before {
+            right: -100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul class="left">
+            <li>Code</li>
+            <li>Issues</li>
+            <li>Pull requests</li>
+            <li>Projects</li>
+            <li>Wiki</li>
+            <li>Insights</li>
+            <li>Settings</li>
+        </ul>
+    </div>
+    <div class="nav">
+        <ul class="right">
+            <li>Settings</li>
+            <li>Insights</li>
+            <li>Wiki</li>
+            <li>Projects</li>
+            <li>Pull requests</li>
+            <li>Issues</li>
+            <li>Code</li>
+        </ul>
+    </div>
+</body>
+</html>
